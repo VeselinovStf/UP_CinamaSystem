@@ -1,7 +1,10 @@
 ## UltraPlay CinemaAPI Task
 ##### Content
 1. Project Task
-2. [Project Planning](https://github.com/VeselinovStf/UP_CinamaSystem/projects/1 "Project Planning")
+2. [Project Planning](https://github.com/VeselinovStf/UP_CinamaSystem/projects/1 "Details Here")
+3. [ Task Notes  ](https://github.com/VeselinovStf/UP_CinamaSystem/projects/2 "( Detail Here )")
+4. Used Technology
+5. Used Literature and Videos
 
 ### 1. Project Task 
 	
@@ -41,4 +44,13 @@
 	
 > Select only what you need from database. - Expect hundreds of users using this application at the same time. Lots of users might want to reserve or buy tickets at once for movies right after they are released. Note: You may modify the existed code at your discretion as well as to add missing components if you think it is necessary. Evaluation criteria: - Maintainability (Code reusability and extensibility) - Data selections - Performance - Concurrency - Validations and Error handling - Returning on correct http status codes and descriptive messages. Thank you for your time and effort in making this assessment! 
 
-### 2. Project Planning [( Detailed Info Here )](https://github.com/VeselinovStf/UP_CinamaSystem/projects/1 "( Detailsed Info Here )")
+### 2. Project Planning [( Detailed Info Here )](https://github.com/VeselinovStf/UP_CinamaSystem/projects/1 "( Details Here )")
+
+### 3. Task Notes - Project Tasks Work flow [( Detailed Info Here )](https://github.com/VeselinovStf/UP_CinamaSystem/projects/2 "( Detail Here )")
+### 4. Used Technology
+### 5. Used Literature and Videos
+
+> Pluralsight - Implementing an API in ASP.NET Web API by Shawn Wildermuth, 
+> 	Pluralsight - Building and Securing a RESTful API for Multiple Clients in 	ASP.NET by Kevin Dockx, 
+> 	Microsoft - Get Started with ASP.NET Web API 2 (C#) 
+
