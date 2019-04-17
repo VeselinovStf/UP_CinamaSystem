@@ -1,13 +1,14 @@
 ﻿using CinemAPI.Models.Contracts.Room;
+using System.Threading.Tasks;
 
 namespace CinemAPI.Data
 {
     public interface IRoomRepository
     {
-        IRoom GetById(int id);
+        Task<IRoom> GetById(int id);
+        
+        Task<IRoom> GetByCinemaAndNumber(int cinemaId, int number);
 
-        IRoom GetByCinemaAndNumber(int cinemaId, int number);
-
-        void Insert(IRoomCreation room);
+        Task Insert(IRoomCreation room);
     }
 }

@@ -6,6 +6,7 @@ using CinemAPI.Models.Contracts.Projection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace CinemAPI.Domain.NewProjection
 {
@@ -22,9 +23,9 @@ namespace CinemAPI.Domain.NewProjection
             this.newProj = proj;
         }
 
-        public NewProjectionSummary New(IProjectionCreation proj)
+        public async Task<NewProjectionSummary> New(IProjectionCreation proj)
         {
-            IEnumerable<IProjection> movieProjectionsInRoom = projectRepo.GetActiveProjections(proj.RoomId);
+            IEnumerable<IProjection> movieProjectionsInRoom = await projectRepo.GetActiveProjections(proj.RoomId);
 
             IProjection previousProjection = movieProjectionsInRoom.Where(x => x.StartDate < proj.StartDate)
                                                                         .OrderByDescending(x => x.StartDate)
@@ -32,7 +33,7 @@ namespace CinemAPI.Domain.NewProjection
 
             if (previousProjection != null)
             {
-                IMovie previousProjectionMovie = movieRepo.GetById(previousProjection.MovieId);
+                IMovie previousProjectionMovie = await movieRepo.GetById(previousProjection.MovieId);
 
                 DateTime previousProjectionEnd = previousProjection.StartDate.AddMinutes(previousProjectionMovie.DurationMinutes);
 
@@ -42,7 +43,7 @@ namespace CinemAPI.Domain.NewProjection
                 }
             }
 
-            return newProj.New(proj);
+            return await newProj.New(proj);
         }
     }
 }

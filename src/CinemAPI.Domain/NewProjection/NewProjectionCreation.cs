@@ -3,6 +3,7 @@ using CinemAPI.Domain.Contracts;
 using CinemAPI.Domain.Contracts.Models;
 using CinemAPI.Models;
 using CinemAPI.Models.Contracts.Projection;
+using System.Threading.Tasks;
 
 namespace CinemAPI.Domain
 {
@@ -15,9 +16,9 @@ namespace CinemAPI.Domain
             this.projectionsRepo = projectionsRepo;
         }
 
-        public NewProjectionSummary New(IProjectionCreation projection)
+        public async Task<NewProjectionSummary> New(IProjectionCreation projection)
         {
-            projectionsRepo.Insert(new Projection(projection.MovieId, projection.RoomId, projection.StartDate));
+            await projectionsRepo.Insert(new Projection(projection.MovieId, projection.RoomId, projection.StartDate));
 
             return new NewProjectionSummary(true);
         }

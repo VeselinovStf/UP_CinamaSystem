@@ -2,6 +2,8 @@
 using CinemAPI.Models;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace CinemAPI.Data.EF
 {
@@ -40,6 +42,11 @@ namespace CinemAPI.Data.EF
             }
 
             base.OnModelCreating(modelBuilder);
+        }
+
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken)
+        {
+            return base.SaveChangesAsync(cancellationToken);
         }
     }
 }

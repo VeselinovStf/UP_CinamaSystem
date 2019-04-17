@@ -2,6 +2,7 @@
 using CinemAPI.Domain.Contracts.Models;
 using CinemAPI.Models;
 using CinemAPI.Models.Input.Projection;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace CinemAPI.Controllers
@@ -16,9 +17,9 @@ namespace CinemAPI.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult Index(ProjectionCreationModel model)
+        public async Task<IHttpActionResult> Index(ProjectionCreationModel model)
         {
-            NewProjectionSummary summary = newProj.New(new Projection(model.MovieId, model.RoomId, model.StartDate));
+            NewProjectionSummary summary =  await newProj.New(new Projection(model.MovieId, model.RoomId, model.StartDate));
 
             if (summary.IsCreated)
             {

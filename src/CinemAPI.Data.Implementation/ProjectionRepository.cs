@@ -3,7 +3,9 @@ using CinemAPI.Models;
 using CinemAPI.Models.Contracts.Projection;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace CinemAPI.Data.Implementation
 {
@@ -16,27 +18,28 @@ namespace CinemAPI.Data.Implementation
             this.db = db;
         }
 
-        public IProjection Get(int movieId, int roomId, DateTime startDate)
+        public async Task<IProjection> Get(int movieId, int roomId, DateTime startDate)
         {
-            return db.Projections.FirstOrDefault(x => x.MovieId == movieId &&
+            return await db.Projections.FirstOrDefaultAsync(x => x.MovieId == movieId &&
                                                       x.RoomId == roomId &&
                                                       x.StartDate == startDate);
         }
 
-        public IEnumerable<IProjection> GetActiveProjections(int roomId)
+        public async Task<IEnumerable<IProjection>> GetActiveProjections(int roomId)
         {
             DateTime now = DateTime.UtcNow;
 
-            return db.Projections.Where(x => x.RoomId == roomId &&
-                                             x.StartDate > now);
+            return await db.Projections.Where(x => x.RoomId == roomId &&
+                                             x.StartDate > now)
+                                             .ToListAsync();
         }
 
-        public void Insert(IProjectionCreation proj)
+        public async Task Insert(IProjectionCreation proj)
         {
             Projection newProj = new Projection(proj.MovieId, proj.RoomId, proj.StartDate);
 
             db.Projections.Add(newProj);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
         }
     }
 }

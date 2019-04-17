@@ -3,6 +3,7 @@ using CinemAPI.Domain.Contracts;
 using CinemAPI.Domain.Contracts.Models;
 using CinemAPI.Models.Contracts.Projection;
 using CinemAPI.Models.Contracts.Room;
+using System.Threading.Tasks;
 
 namespace CinemAPI.Domain.NewProjection
 {
@@ -17,16 +18,16 @@ namespace CinemAPI.Domain.NewProjection
             this.newProj = newProj;
         }
 
-        public NewProjectionSummary New(IProjectionCreation proj)
+        public async Task<NewProjectionSummary> New(IProjectionCreation proj)
         {
-            IRoom room = roomRepo.GetById(proj.RoomId);
+            IRoom room = await roomRepo.GetById(proj.RoomId);
 
             if (room == null)
             {
                 return new NewProjectionSummary(false, $"Room with id {proj.RoomId} does not exist");
             }
 
-            return newProj.New(proj);
+            return await newProj.New(proj);
         }
     }
 }
