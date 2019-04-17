@@ -59,6 +59,7 @@
 <dd> | | Examine task requirements </dd>
   <dd> | | Examine code base</dd>
   <dt> List api associations - routs</dt>
+	<dd>Section 0: Methods: GET <--- http://host/Help ---> Api Help Page </dd> 
 	<dd>Section 1: Methods: <--- request http ---> result </dd> 
   <dd>Section 2: Methods: <--- request http ---> result </dd> 
 <dd>Section 3: Methods: <--- request http ---> result </dd> 
@@ -66,7 +67,7 @@
 <dd>Section 5.1 : Methods: <--- request http ---> result </dd> 
 <dd>Section 5.2 : Methods: <--- request http ---> result </dd> 
   <dt> Refactor existing code</dt>
-	<dd>| | Settup help page </dd>
+	<dd> |X| Settup help page </dd>
 	<dd>| | Settup documentation </dd>
 	<dd>| | Async Methods </dd>
 	<dd>| | Routeing attributes </dd>
@@ -80,6 +81,10 @@
 	<dd>| | Settup JSONP as format </dd>
 	<dd>| | Exposing LINK's to endpoints result </dd>	
   <dt> Work on Task Sections </dt>
+	<dd> Analyze task -> add planning to the task board</dd>
+	<dd>Build future</dd>
+	<dd>Unit test</dd>
+	<dd>Test with Fiddler</dd>
 </dl>
 
 ### 4. Used Technology
@@ -88,4 +93,3 @@
 > Pluralsight - Implementing an API in ASP.NET Web API by Shawn Wildermuth, 
 > 	Pluralsight - Building and Securing a RESTful API for Multiple Clients in 	ASP.NET by Kevin Dockx, 
 > 	Microsoft - Get Started with ASP.NET Web API 2 (C#) 
-

@@ -1,4 +1,5 @@
 ﻿using System.Web.Http;
+using System.Web.Mvc;
 
 namespace CinemAPI
 {
@@ -8,6 +9,8 @@ namespace CinemAPI
         {
             // Web API configuration and services
 
+            // Register All Areas - done for Help Pages
+            AreaRegistration.RegisterAllAreas();
             // Web API routes
             config.MapHttpAttributeRoutes();
 
