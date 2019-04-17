@@ -47,6 +47,41 @@
 ### 2. Project Planning [( Detailed Info Here )](https://github.com/VeselinovStf/UP_CinamaSystem/projects/1 "( Details Here )")
 
 ### 3. Task Notes - Project Tasks Work flow [( Detailed Info Here )](https://github.com/VeselinovStf/UP_CinamaSystem/projects/2 "( Detail Here )")
+
+<dl>
+  <dt>Project target</dt>
+   <dd>API purpose is to manage cinemas and their projections of movies</dd>
+  <dt>Current State</dt>
+  <dd> .NET Web Api project</dd>
+  <dd>Entity Framework to communicate with MSSQL Server.</dd>
+<dd> Endpoints to create cinemas, rooms in these cinemas, movies and projections of these movies in cinemas.</dd>
+  <dt>Task walkthrough</dt>
+<dd> | | Examine task requirements </dd>
+  <dd> | | Examine code base</dd>
+  <dt> List api associations - routs</dt>
+	<dd>Section 1: Methods: <--- request http ---> result </dd> 
+  <dd>Section 2: Methods: <--- request http ---> result </dd> 
+<dd>Section 3: Methods: <--- request http ---> result </dd> 
+<dd>Section 4: Methods: <--- request http ---> result </dd> 
+<dd>Section 5.1 : Methods: <--- request http ---> result </dd> 
+<dd>Section 5.2 : Methods: <--- request http ---> result </dd> 
+  <dt> Refactor existing code</dt>
+	<dd>| | Settup help page </dd>
+	<dd>| | Settup documentation </dd>
+	<dd>| | Async Methods </dd>
+	<dd>| | Routeing attributes </dd>
+	<dd>| | Service Layer </dd>
+	<dd>| | Model Factory </dd>
+	<dd>| | Caching </dd>
+	<dd>| | Database Seed</dd>
+	<dd> | | SetUp Database and db-migration </dd>
+	<dd>| | Use of SSL </dd>
+	<dd>| | Settup CORS </dd>
+	<dd>| | Settup JSONP as format </dd>
+	<dd>| | Exposing LINK's to endpoints result </dd>	
+  <dt> Work on Task Sections </dt>
+</dl>
+
 ### 4. Used Technology
 ### 5. Used Literature and Videos
 
