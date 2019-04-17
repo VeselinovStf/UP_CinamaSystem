@@ -75,7 +75,7 @@
 	<dd>| | Model Factory </dd>
 	<dd>| | Caching </dd>
 	<dd> |X| SetUp Database and db-migration </dd>
-	<dd>| | Settup Database Seed</dd>
+	<dd>|-| Settup Database Seed</dd>
 	<dd>| | Use of SSL </dd>
 	<dd>| | Settup CORS </dd>
 	<dd>| | Settup JSONP as format </dd>

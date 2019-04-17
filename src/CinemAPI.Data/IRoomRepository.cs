@@ -10,5 +10,6 @@ namespace CinemAPI.Data
         Task<IRoom> GetByCinemaAndNumber(int cinemaId, int number);
 
         Task Insert(IRoomCreation room);
+
     }
 }

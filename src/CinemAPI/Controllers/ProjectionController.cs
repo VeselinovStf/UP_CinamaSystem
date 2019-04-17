@@ -16,6 +16,11 @@ namespace CinemAPI.Controllers
             this.newProj = newProj;
         }
 
+        [HttpGet]
+        public IHttpActionResult Get()
+        {
+            return Ok("ooooooooolk");
+        }
         [HttpPost]
         public async Task<IHttpActionResult> Index(ProjectionCreationModel model)
         {
