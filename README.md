@@ -68,14 +68,14 @@
 <dd>Section 5.2 : Methods: <--- request http ---> result </dd> 
   <dt> Refactor existing code</dt>
 	<dd> |X| Settup help page </dd>
-	<dd>| | Settup documentation </dd>
-	<dd>| | Async Methods </dd>
+	<dd>| | Settup documentation -- add suppress warning 1591 to build</dd>
+	<dd>|X| Async Methods </dd>
 	<dd>| | Routeing attributes </dd>
 	<dd>| | Service Layer </dd>
 	<dd>| | Model Factory </dd>
 	<dd>| | Caching </dd>
-	<dd>| | Database Seed</dd>
-	<dd> | | SetUp Database and db-migration </dd>
+	<dd> |X| SetUp Database and db-migration </dd>
+	<dd>| | Settup Database Seed</dd>
 	<dd>| | Use of SSL </dd>
 	<dd>| | Settup CORS </dd>
 	<dd>| | Settup JSONP as format </dd>
