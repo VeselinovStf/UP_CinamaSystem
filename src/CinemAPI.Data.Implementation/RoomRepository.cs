@@ -1,9 +1,7 @@
 ﻿using CinemAPI.Data.EF;
 using CinemAPI.Models;
 using CinemAPI.Models.Contracts.Room;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace CinemAPI.Data.Implementation
@@ -17,7 +15,6 @@ namespace CinemAPI.Data.Implementation
             this.db = db;
         }
 
-     
         public async Task<IRoom> GetByCinemaAndNumber(int cinemaId, int number)
         {
             return await db.Rooms.FirstOrDefaultAsync(x => x.CinemaId == cinemaId &&

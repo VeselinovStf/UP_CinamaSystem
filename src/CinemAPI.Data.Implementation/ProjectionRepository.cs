@@ -36,7 +36,7 @@ namespace CinemAPI.Data.Implementation
 
         public async Task Insert(IProjectionCreation proj)
         {
-            Projection newProj = new Projection(proj.MovieId, proj.RoomId, proj.StartDate);
+            Projection newProj = new Projection(proj.MovieId, proj.RoomId, proj.StartDate, proj.AvailableSeatsCount);
 
             db.Projections.Add(newProj);
             await db.SaveChangesAsync();

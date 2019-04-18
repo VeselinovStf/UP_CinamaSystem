@@ -29,7 +29,7 @@ namespace CinemAPI.Data.Implementation
 
             db.Cinemas.Add(newCinema);
 
-           await db.SaveChangesAsync();
+            await db.SaveChangesAsync();
         }
     }
 }

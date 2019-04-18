@@ -18,7 +18,7 @@ namespace CinemAPI.Domain
 
         public async Task<NewProjectionSummary> New(IProjectionCreation projection)
         {
-            await projectionsRepo.Insert(new Projection(projection.MovieId, projection.RoomId, projection.StartDate));
+            await projectionsRepo.Insert(new Projection(projection.MovieId, projection.RoomId, projection.StartDate, projection.AvailableSeatsCount));
 
             return new NewProjectionSummary(true);
         }

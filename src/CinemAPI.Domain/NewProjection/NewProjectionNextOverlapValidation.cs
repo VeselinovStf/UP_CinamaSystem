@@ -34,7 +34,7 @@ namespace CinemAPI.Domain.NewProjection
             if (nextProjection != null)
             {
                 IMovie curMovie = await movieRepo.GetById(proj.MovieId);
-                IMovie nextProjectionMovie = await  movieRepo.GetById(nextProjection.MovieId);
+                IMovie nextProjectionMovie = await movieRepo.GetById(nextProjection.MovieId);
 
                 DateTime curProjectionEndTime = proj.StartDate.AddMinutes(curMovie.DurationMinutes);
 

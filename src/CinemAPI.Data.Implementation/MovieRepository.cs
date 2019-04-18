@@ -2,7 +2,6 @@
 using CinemAPI.Models;
 using CinemAPI.Models.Contracts.Movie;
 using System.Data.Entity;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace CinemAPI.Data.Implementation
@@ -32,7 +31,7 @@ namespace CinemAPI.Data.Implementation
             Movie newMovie = new Movie(movie.Name, movie.DurationMinutes);
 
             db.Movies.Add(newMovie);
-           await db.SaveChangesAsync();
+            await db.SaveChangesAsync();
         }
     }
 }

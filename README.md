@@ -70,12 +70,12 @@
 	<dd> |X| Settup help page </dd>
 	<dd>| | Settup documentation -- add suppress warning 1591 to build</dd>
 	<dd>|X| Async Methods </dd>
-	<dd>| | Routeing attributes </dd>
+	<dd>|X| Routeing attributes </dd>
 	<dd>| | Service Layer </dd>
 	<dd>| | Model Factory </dd>
 	<dd>| | Caching </dd>
 	<dd> |X| SetUp Database and db-migration </dd>
-	<dd>|-| Settup Database Seed</dd>
+	<dd>|X| Settup Database Seed</dd>
 	<dd>| | Use of SSL </dd>
 	<dd>| | Settup CORS </dd>
 	<dd>| | Settup JSONP as format </dd>

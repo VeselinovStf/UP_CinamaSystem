@@ -1,8 +1,8 @@
+using CinemAPI.Areas.HelpPage.ModelDescriptions;
+using CinemAPI.Areas.HelpPage.Models;
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using CinemAPI.Areas.HelpPage.ModelDescriptions;
-using CinemAPI.Areas.HelpPage.Models;
 
 namespace CinemAPI.Areas.HelpPage.Controllers
 {

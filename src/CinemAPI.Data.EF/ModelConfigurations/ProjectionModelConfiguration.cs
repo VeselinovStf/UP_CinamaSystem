@@ -1,6 +1,6 @@
-﻿using System.Data.Entity;
+﻿using CinemAPI.Models;
+using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
-using CinemAPI.Models;
 
 namespace CinemAPI.Data.EF.ModelConfigurations
 {
@@ -13,6 +13,7 @@ namespace CinemAPI.Data.EF.ModelConfigurations
             projectionModel.Property(model => model.MovieId).IsRequired();
             projectionModel.Property(model => model.RoomId).IsRequired();
             projectionModel.Property(model => model.StartDate).IsRequired();
+            projectionModel.Property(model => model.AvailableSeatsCount).IsRequired();
         }
     }
 }

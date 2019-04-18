@@ -16,15 +16,10 @@ namespace CinemAPI.Controllers
             this.newProj = newProj;
         }
 
-        [HttpGet]
-        public IHttpActionResult Get()
-        {
-            return Ok("ooooooooolk");
-        }
         [HttpPost]
         public async Task<IHttpActionResult> Index(ProjectionCreationModel model)
         {
-            NewProjectionSummary summary =  await newProj.New(new Projection(model.MovieId, model.RoomId, model.StartDate));
+            NewProjectionSummary summary = await newProj.New(new Projection(model.MovieId, model.RoomId, model.StartDate, model.AvailableSeatsCount));
 
             if (summary.IsCreated)
             {

@@ -2,14 +2,14 @@
 {
     public interface IRoom
     {
-       int Id { get; }
+        int Id { get; }
 
-       int CinemaId { get; }
+        int CinemaId { get; }
 
-       int Number { get; }
+        int Number { get; }
 
-       short SeatsPerRow { get; }
+        short SeatsPerRow { get; }
 
-       short Rows { get; }
+        short Rows { get; }
     }
 }

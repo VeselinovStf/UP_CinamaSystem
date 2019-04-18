@@ -1,8 +1,8 @@
+using CinemAPI.Areas.HelpPage.ModelDescriptions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http.Headers;
 using System.Web.Http.Description;
-using CinemAPI.Areas.HelpPage.ModelDescriptions;
 
 namespace CinemAPI.Areas.HelpPage.Models
 {

@@ -1,6 +1,6 @@
-﻿using System.Data.Entity;
+﻿using CinemAPI.Models;
+using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
-using CinemAPI.Models;
 
 namespace CinemAPI.Data.EF.ModelConfigurations
 {

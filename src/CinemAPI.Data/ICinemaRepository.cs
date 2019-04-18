@@ -1,5 +1,4 @@
-﻿using CinemAPI.Models;
-using CinemAPI.Models.Contracts.Cinema;
+﻿using CinemAPI.Models.Contracts.Cinema;
 using System.Threading.Tasks;
 
 namespace CinemAPI.Data

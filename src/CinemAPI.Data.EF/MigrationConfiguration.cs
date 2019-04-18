@@ -1,7 +1,5 @@
 ﻿using CinemAPI.Models;
-using System;
 using System.Data.Entity.Migrations;
-using System.Linq;
 
 namespace CinemAPI.Data.EF
 {
@@ -17,22 +15,22 @@ namespace CinemAPI.Data.EF
         {
             //if (!context.Cinemas.Any())
             //{
-
             //}
 
             SeedCinemas(context);
             SeedRooms(context);
             SeedMovies(context);
             SeedProjections(context);
-            
         }
+
         private void SeedProjections(CinemaDbContext context)
         {
             context.Projections.AddOrUpdate(p =>
                  p.Id,
-                 new Projection() { Id = 1, MovieId = 1, RoomId = 1, StartDate = new System.DateTime(2019, 4, 30) },
-                 new Projection() { Id = 2, MovieId = 2, RoomId = 2, StartDate = new System.DateTime(2019, 4, 25) },
-                 new Projection() { Id = 4, MovieId = 4, RoomId = 4, StartDate = new System.DateTime(2019, 6, 30) }
+                 new Projection() { Id = 1, MovieId = 1, RoomId = 1, StartDate = new System.DateTime(2019, 4, 30) , AvailableSeatsCount = 10},
+                 new Projection() { Id = 2, MovieId = 2, RoomId = 2, StartDate = new System.DateTime(2019, 4, 25) , AvailableSeatsCount = 20},
+                 new Projection() { Id = 4, MovieId = 4, RoomId = 4, StartDate = new System.DateTime(2019, 6, 30) , AvailableSeatsCount = 5},
+                 new Projection() { Id = 5, MovieId = 4, RoomId = 4, StartDate = new System.DateTime(2019, 3, 30) , AvailableSeatsCount = 5}
                  );
         }
 
@@ -45,7 +43,7 @@ namespace CinemAPI.Data.EF
                  new Movie() { Id = 3, DurationMinutes = 60, Name = "Some random" },
                  new Movie() { Id = 4, DurationMinutes = 25, Name = "Fast and Faster 2" }
                  );
-        }      
+        }
 
         private void SeedRooms(CinemaDbContext context)
         {

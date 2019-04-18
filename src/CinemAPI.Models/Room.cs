@@ -32,6 +32,5 @@ namespace CinemAPI.Models
         public virtual Cinema Cinema { get; set; }
 
         public virtual ICollection<Projection> Projections { get; set; }
-
     }
 }
