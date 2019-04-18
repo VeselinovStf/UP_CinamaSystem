@@ -30,6 +30,12 @@ namespace CinemAPI
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
                 );
+
+            config.Routes.MapHttpRoute(
+                name: "ProjectionAvailibleSeatsCount",
+                routeTemplate: "api/projection/{projectionId}/availibleSeatsCount",
+                defaults: new { controller = "projection" }
+                );
         }
 
         // Register All Areas - done for Help Pages

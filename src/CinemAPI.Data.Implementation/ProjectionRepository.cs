@@ -25,6 +25,16 @@ namespace CinemAPI.Data.Implementation
                                                       x.StartDate == startDate);
         }
 
+        public async Task<IEnumerable<IProjection>> Get()
+        {
+            return this.db.Projections;
+        }
+
+        public async Task<IProjection> Get(long projectionId)
+        {
+            return await this.db.Projections.FirstOrDefaultAsync(p => p.Id == projectionId);
+        }
+
         public async Task<IEnumerable<IProjection>> GetActiveProjections(int roomId)
         {
             DateTime now = DateTime.UtcNow;

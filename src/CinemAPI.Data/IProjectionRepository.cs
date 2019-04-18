@@ -7,6 +7,10 @@ namespace CinemAPI.Data
 {
     public interface IProjectionRepository
     {
+        Task<IEnumerable<IProjection>> Get();
+
+        Task<IProjection> Get(long projectionId);
+
         Task<IProjection> Get(int movieId, int roomId, DateTime startDate);
 
         Task Insert(IProjectionCreation projection);

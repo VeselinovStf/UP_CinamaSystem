@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GetProjectionSeatsCount\GetProjectionAvailibleSeatCount.cs" />
+    <Compile Include="GetProjectionSeatsCount\GetProjectionSeatsCountIdValidation.cs" />
     <Compile Include="NewProjection\NewProjectionMovieValidation.cs" />
     <Compile Include="NewProjection\NewProjectionRoomValidation.cs" />
     <Compile Include="NewProjection\NewProjectionCreation.cs" />
