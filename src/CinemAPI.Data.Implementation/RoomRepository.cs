@@ -23,7 +23,7 @@ namespace CinemAPI.Data.Implementation
 
         public async Task<IRoom> GetById(int id)
         {
-            return await db.Rooms.FirstOrDefaultAsync(x => x.Id == id);
+            return await db.Rooms.Include(r => r.Cinema).FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task Insert(IRoomCreation room)

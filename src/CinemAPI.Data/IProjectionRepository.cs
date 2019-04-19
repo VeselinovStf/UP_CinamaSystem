@@ -7,7 +7,7 @@ namespace CinemAPI.Data
 {
     public interface IProjectionRepository
     {
-        Task<IEnumerable<IProjection>> Get();
+        Task UpdateAvailibleSeats(int value, int projectionId);
 
         Task<IProjection> Get(long projectionId);
 

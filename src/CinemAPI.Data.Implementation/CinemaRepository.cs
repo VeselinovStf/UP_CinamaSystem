@@ -23,6 +23,13 @@ namespace CinemAPI.Data.Implementation
                              .FirstOrDefaultAsync();
         }
 
+        public async Task<ICinema> GetRoomsByCinemaId(int cinemaId)
+        {
+            return await db.Cinemas
+                .Include(c => c.Rooms)
+                .FirstOrDefaultAsync(c => c.Id == cinemaId);
+        }
+
         public async Task Insert(ICinemaCreation cinema)
         {
             Cinema newCinema = new Cinema(cinema.Name, cinema.Address);

@@ -25,9 +25,14 @@ namespace CinemAPI.Data.Implementation
                                                       x.StartDate == startDate);
         }
 
-        public async Task<IEnumerable<IProjection>> Get()
+        //TODO:
+        public async void UpdateAvailibleSeats(int value, int projectionId)
         {
-            return this.db.Projections;
+            var dbModel = await this.db.Projections.FirstOrDefaultAsync(p => p.Id == projectionId);
+
+            dbModel.AvailableSeatsCount += value;
+
+            await this.db.SaveChangesAsync();
         }
 
         public async Task<IProjection> Get(long projectionId)

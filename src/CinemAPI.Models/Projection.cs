@@ -5,18 +5,16 @@ namespace CinemAPI.Models
 {
     public class Projection : IProjection, IProjectionCreation
     {
-        private readonly int availibleSeatsCount;
-
         public Projection()
         {
         }
 
-        public Projection(int movieId, int roomId, DateTime startdate, int availibleSeatsCount)
+        public Projection(int movieId, int roomId, DateTime startdate, int availableSeatsCount)
         {
             this.MovieId = movieId;
             this.RoomId = roomId;
             this.StartDate = startdate;
-            this.availibleSeatsCount = availibleSeatsCount;
+            this.AvailableSeatsCount = availableSeatsCount;
         }
 
         public long Id { get; set; }

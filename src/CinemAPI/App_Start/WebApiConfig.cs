@@ -36,6 +36,12 @@ namespace CinemAPI
                 routeTemplate: "api/projection/{projectionId}/availibleSeatsCount",
                 defaults: new { controller = "projection" }
                 );
+
+            config.Routes.MapHttpRoute(
+                name: "CreateReservation",
+                routeTemplate: "api/reservation/{projectionId}/{row}/{col}",
+                defaults: new { controller = "reservation" }
+                );
         }
 
         // Register All Areas - done for Help Pages

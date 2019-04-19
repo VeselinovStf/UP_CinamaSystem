@@ -42,12 +42,22 @@
   <ItemGroup>
     <Compile Include="GetProjectionSeatsCount\GetProjectionAvailibleSeatCount.cs" />
     <Compile Include="GetProjectionSeatsCount\GetProjectionSeatsCountIdValidation.cs" />
+    <Compile Include="GetProjection\GetProjection.cs" />
+    <Compile Include="NewReservation\NewReservationCinemaValidation.cs" />
+    <Compile Include="NewReservation\NewReservationCreation.cs" />
     <Compile Include="NewProjection\NewProjectionMovieValidation.cs" />
     <Compile Include="NewProjection\NewProjectionRoomValidation.cs" />
     <Compile Include="NewProjection\NewProjectionCreation.cs" />
     <Compile Include="NewProjection\NewProjectionNextOverlapValidation.cs" />
     <Compile Include="NewProjection\NewProjectionPreviousOverlapValidation.cs" />
     <Compile Include="NewProjection\NewProjectionUniqueValidation.cs" />
+    <Compile Include="NewReservation\NewReservationDateTimeValidation.cs" />
+    <Compile Include="NewReservation\NewReservationDecreaseSeats.cs" />
+    <Compile Include="NewReservation\NewReservationExistingSeatValidation.cs" />
+    <Compile Include="NewReservation\NewReservationMovieValidation.cs" />
+    <Compile Include="NewReservation\NewReservationProjectionValidation.cs" />
+    <Compile Include="NewReservation\NewReservationReservedSeatValidation.cs" />
+    <Compile Include="NewReservation\NewReservationRoomValidation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
