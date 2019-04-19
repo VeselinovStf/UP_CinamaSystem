@@ -1,4 +1,8 @@
 ﻿using CinemAPI.Domain;
+using CinemAPI.Domain.BuyTicketWithotuReservation;
+using CinemAPI.Domain.BuyTicketWithoutReservation;
+using CinemAPI.Domain.BuyTicketWithReservation;
+using CinemAPI.Domain.CancelReservation;
 using CinemAPI.Domain.Contracts;
 using CinemAPI.Domain.GetProjection;
 using CinemAPI.Domain.GetProjectionSeatsCount;
@@ -22,6 +26,7 @@ namespace CinemAPI.IoCContainer
 
             // ProjectionSeatsCount
             container.Register<IProjectionSeatsCount, GetProjectionAvailibleSeatCount>();
+            container.RegisterDecorator<IProjectionSeatsCount, GetProjectionSeatCountProjection>();
             container.RegisterDecorator<IProjectionSeatsCount, GetProjectionSeatsCountIdValidation>();
 
             //Reservation
@@ -39,8 +44,18 @@ namespace CinemAPI.IoCContainer
             // Get Projections
             container.Register<IGetProjection, GetProjection>();
 
-            //
-            //container.Register<>
+            // Cancell Reservation
+            container.Register<ICancelReservation, CancelReservation>();
+
+            // Buy without reservation
+            container.Register<IBuyWithoutReservation, BuyTicketsWithoutReservation>();
+            container.RegisterDecorator<IBuyWithoutReservation, BuyTicketsWithoutReservationAvailibleSeat>();
+            container.RegisterDecorator<IBuyWithoutReservation, BuyTicketsWithoutReservationDateTimeValidation>();
+            container.RegisterDecorator<IBuyWithoutReservation, BuyTicketsWithoutReservationValidation>();
+
+            // Buy with reservation
+            container.Register<IBuyWithReservation, BuyTicketWithReservation>();
+            container.RegisterDecorator<IBuyWithReservation, BuyTicketWithReservationValidation>();
         }
     }
 }

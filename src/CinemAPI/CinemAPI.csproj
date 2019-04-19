@@ -172,6 +172,9 @@
     <Compile Include="Models\Input\Projection\ProjectionCreationModel.cs" />
     <Compile Include="Models\Input\Reservation\ReservationCreationModel.cs" />
     <Compile Include="Models\Input\Room\RoomCreationModel.cs" />
+    <Compile Include="Models\ModelFactory\IModelFactory.cs" />
+    <Compile Include="Models\ModelFactory\ModelFactory.cs" />
+    <Compile Include="Models\Output\Projection\ProjectionSeatsCountModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

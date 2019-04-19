@@ -9,6 +9,11 @@ namespace CinemAPI.Models
         {
         }
 
+        public Projection(int projectionId)
+        {
+            this.Id = projectionId;
+        }
+
         public Projection(int movieId, int roomId, DateTime startdate, int availableSeatsCount)
         {
             this.MovieId = movieId;

@@ -1,4 +1,5 @@
 ﻿using CinemAPI.IoCContainer;
+using CinemAPI.Models.ModelFactory;
 using SimpleInjector;
 using SimpleInjector.Integration.Web;
 using SimpleInjector.Integration.WebApi;
@@ -17,13 +18,16 @@ namespace CinemAPI
             IPackage[] packages = new IPackage[]
             {
                 new DataPackage(),
-                new DomainPackage()
+                new DomainPackage(),
+                new UtilityPackage()
             };
 
             foreach (IPackage package in packages)
             {
                 package.RegisterServices(container);
             }
+
+            container.Register<IModelFactory, ModelFactory>();
 
             container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
             container.Verify();

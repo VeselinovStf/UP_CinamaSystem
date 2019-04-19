@@ -2,6 +2,8 @@
 using CinemAPI.Domain.Contracts.Models;
 using CinemAPI.Models;
 using CinemAPI.Models.Input.Projection;
+using CinemAPI.Models.ModelFactory;
+using CinemAPI.Models.Output.Projection;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -11,21 +13,25 @@ namespace CinemAPI.Controllers
     {
         private readonly INewProjection newProj;
         private readonly IProjectionSeatsCount seatCount;
+        private readonly IModelFactory modelFactory;
 
-        public ProjectionController(INewProjection newProj, IProjectionSeatsCount seatCount)
+        public ProjectionController(INewProjection newProj, IProjectionSeatsCount seatCount, IModelFactory modelFactory)
         {
             this.newProj = newProj;
             this.seatCount = seatCount;
+            this.modelFactory = modelFactory;
         }
 
         [HttpGet]
         public async Task<IHttpActionResult> GetSeatsCount(int projectionId)
         {
-            ProjectionSeatCountSummary summary = await seatCount.Get(projectionId);
+            GetProjectionSeatCountModel summary = await seatCount.Get(new Projection(projectionId));
 
             if (summary.IsCreated)
             {
-                return Ok(summary.AvailableSeatsCount);
+                var model = this.modelFactory.Create(summary);
+
+                return Ok(model);
             }
             else
             {

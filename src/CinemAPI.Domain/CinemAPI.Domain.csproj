@@ -48,6 +48,7 @@
     <Compile Include="BuyTicketWithReservation\BuyTicketWithReservationValidation.cs" />
     <Compile Include="CancelReservation\CancelReservation.cs" />
     <Compile Include="GetProjectionSeatsCount\GetProjectionAvailibleSeatCount.cs" />
+    <Compile Include="GetProjectionSeatsCount\GetProjectionSeatCountProjection.cs" />
     <Compile Include="GetProjectionSeatsCount\GetProjectionSeatsCountIdValidation.cs" />
     <Compile Include="GetProjection\GetProjection.cs" />
     <Compile Include="GetReservations\GetReservations.cs" />
@@ -69,6 +70,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CinemaAPI.DateTimeWraper\CinemaAPI.DateTimeWraper.csproj">
+      <Project>{F7909840-4E98-48F9-97D3-87A6AC8D022F}</Project>
+      <Name>CinemaAPI.DateTimeWraper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CinemAPI.Data\CinemAPI.Data.Contracts.csproj">
       <Project>{B591E11A-DF58-4DDB-8B92-D3DA896FCCF5}</Project>
       <Name>CinemAPI.Data.Contracts</Name>

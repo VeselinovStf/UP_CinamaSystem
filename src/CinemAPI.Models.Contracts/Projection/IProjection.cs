@@ -4,13 +4,13 @@ namespace CinemAPI.Models.Contracts.Projection
 {
     public interface IProjection
     {
-        long Id { get; }
+        long Id { get; set; }
 
-        int RoomId { get; }
+        int RoomId { get; set; }
 
-        int MovieId { get; }
+        int MovieId { get; set; }
 
-        DateTime StartDate { get; }
+        DateTime StartDate { get; set; }
 
         int AvailableSeatsCount { get; set; }
     }

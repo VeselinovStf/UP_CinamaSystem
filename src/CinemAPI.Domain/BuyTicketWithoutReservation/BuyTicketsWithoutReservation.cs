@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CinemAPI.Domain.BuyTicketWithoutReservation
 {
-    class BuyTicketsWithoutReservation : IBuyWithoutReservation
+    public class BuyTicketsWithoutReservation : IBuyWithoutReservation
     {
         private readonly IProjectionRepository projectionRepo;
 

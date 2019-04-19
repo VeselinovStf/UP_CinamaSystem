@@ -10,6 +10,6 @@ namespace CinemAPI.Domain.Contracts
 {
     public interface IProjectionSeatsCount
     {
-        Task<ProjectionSeatCountSummary> Get(long projectionId);
+        Task<GetProjectionSeatCountModel> Get(IProjection projection);
     }
 }

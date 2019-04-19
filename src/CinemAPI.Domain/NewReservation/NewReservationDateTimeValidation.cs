@@ -1,4 +1,5 @@
-﻿using CinemAPI.Data;
+﻿using CinemaAPI.DateTimeWraper;
+using CinemAPI.Data;
 using CinemAPI.Domain.Contracts;
 using CinemAPI.Domain.Contracts.Models;
 using CinemAPI.Models.Contracts.Reservation;
@@ -17,11 +18,13 @@ namespace CinemAPI.Domain.NewReservation
     {
         private readonly INewReservation newReservation;
         private readonly IMovieRepository movieRepo;
+        private readonly IDateTimeWrapper dateTimeNow;
 
-        public NewReservationDateTimeValidation(INewReservation newReservation, IMovieRepository movieRepo)
+        public NewReservationDateTimeValidation(INewReservation newReservation, IMovieRepository movieRepo, IDateTimeWrapper dateTimeNow)
         {
             this.newReservation = newReservation;
             this.movieRepo = movieRepo;
+            this.dateTimeNow = dateTimeNow;
         }
 
         public async Task<NewReservationSummary> New(IReservationCreation reservation)
@@ -32,7 +35,7 @@ namespace CinemAPI.Domain.NewReservation
 
             var endTimeOfProjection = projectionStartDate.AddMinutes(movieRepoCall.DurationMinutes);
 
-            var currentDateTime = DateTime.UtcNow;
+            var currentDateTime = this.dateTimeNow.GetDateTimeNow();
 
             NewReservationSummary summary = new NewReservationSummary(false);
 

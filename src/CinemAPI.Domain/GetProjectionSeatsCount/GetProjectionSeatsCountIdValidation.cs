@@ -1,6 +1,7 @@
 ﻿using CinemAPI.Data;
 using CinemAPI.Domain.Contracts;
 using CinemAPI.Domain.Contracts.Models;
+using CinemAPI.Models.Contracts.Projection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,14 +21,14 @@ namespace CinemAPI.Domain.GetProjectionSeatsCount
             this.projectionRepo = projectionRepo;
         }
 
-        public async Task<ProjectionSeatCountSummary> Get(long projectionId)
+        public async Task<GetProjectionSeatCountModel> Get(IProjection projection)
         {
-            if (projectionId <= 0)
+            if (projection.Id <= 0)
             {
-                return new ProjectionSeatCountSummary(false, $"Projection Id is invalid : {projectionId}");
+                return new GetProjectionSeatCountModel(false, $"Projection Id is invalid : {projection.Id}");
             }
 
-            return await seatsCount.Get(projectionId);
+            return await seatsCount.Get(projection);
         }
     }
 }

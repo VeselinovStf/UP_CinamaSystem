@@ -1,6 +1,8 @@
-﻿using CinemAPI.Data;
+﻿using CinemaAPI.DateTimeWraper;
+using CinemAPI.Data;
 using CinemAPI.Domain.Contracts;
 using CinemAPI.Domain.Contracts.Models;
+using CinemAPI.Models.Contracts.Projection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,43 +15,42 @@ namespace CinemAPI.Domain.GetProjectionSeatsCount
     {
         private readonly IProjectionRepository projectionRepo;
         private readonly IMovieRepository movieRepository;
+        private readonly IDateTimeWrapper dateTimeNowWrapper;
 
         public GetProjectionAvailibleSeatCount(
 
             IProjectionRepository projectionRepo,
-            IMovieRepository movieRepository)
+            IMovieRepository movieRepository,
+            IDateTimeWrapper dateTimeNowWrapper)
         {
             this.projectionRepo = projectionRepo;
             this.movieRepository = movieRepository;
+            this.dateTimeNowWrapper = dateTimeNowWrapper;
         }
 
-        public async Task<ProjectionSeatCountSummary> Get(long projectionId)
+        public async Task<GetProjectionSeatCountModel> Get(IProjection projection)
         {
-            var projectionRepoCall = await this.projectionRepo.Get(projectionId);
+            GetProjectionSeatCountModel resultModel = new GetProjectionSeatCountModel(false);
 
-            ProjectionSeatCountSummary resultModel = new ProjectionSeatCountSummary(false);
+            var movieRepoCall = await this.movieRepository.GetById(projection.MovieId);
 
-            if (projectionRepoCall != null)
+            var endTimeOfProjection = projection.StartDate.AddMinutes(movieRepoCall.DurationMinutes);
+
+            var dateTimeNow = this.dateTimeNowWrapper.GetDateTimeNow();
+
+            if (projection.StartDate > dateTimeNow)
             {
-                var movieRepoCall = await this.movieRepository.GetById(projectionRepoCall.MovieId);
+                resultModel.AvailableSeatsCount = projection.AvailableSeatsCount;
+                resultModel.IsCreated = true;
+            }
 
-                var endTimeOfProjection = projectionRepoCall.StartDate.AddMinutes(movieRepoCall.DurationMinutes);
-
-                var dateTimeNow = DateTime.UtcNow;
-
-                if (projectionRepoCall.StartDate > dateTimeNow)
-                {
-                    resultModel.AvailableSeatsCount = projectionRepoCall.AvailableSeatsCount;
-                    resultModel.IsCreated = true;
-                }
-                else if (dateTimeNow > endTimeOfProjection)
-                {
-                    resultModel.Message = "Projection is finished";
-                }
-                else
-                {
-                    resultModel.Message = "Projection is started";
-                }
+            if (dateTimeNow > endTimeOfProjection)
+            {
+                resultModel.Message = "Projection is finished";
+            }
+            else
+            {
+                resultModel.Message = "Projection is started";
             }
 
             return resultModel;

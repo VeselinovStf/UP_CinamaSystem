@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{87F9B363-DB5B-4171-B86D-3CC2D9B5A5BD}</ProjectGuid>
+    <ProjectGuid>{F7909840-4E98-48F9-97D3-87A6AC8D022F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CinemAPI.Domain.Contracts</RootNamespace>
-    <AssemblyName>CinemAPI.Domain.Contracts</AssemblyName>
+    <RootNamespace>CinemaAPI.DateTimeWraper</RootNamespace>
+    <AssemblyName>CinemaAPI.DateTimeWraper</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,26 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IBuyWithoutReservation.cs" />
-    <Compile Include="IBuyWithReservation.cs" />
-    <Compile Include="ICancelReservation.cs" />
-    <Compile Include="IGetProjection.cs" />
-    <Compile Include="INewProjection.cs" />
-    <Compile Include="INewReservation.cs" />
-    <Compile Include="IProjectionSeatsCount.cs" />
-    <Compile Include="Models\CancelReservationSummary.cs" />
-    <Compile Include="Models\NewProjectionSummary.cs" />
-    <Compile Include="Models\NewReservationSummary.cs" />
-    <Compile Include="Models\GetProjectionSeatCountModel.cs" />
-    <Compile Include="Models\ProjectionSummary.cs" />
-    <Compile Include="Models\TicketSummary.cs" />
+    <Compile Include="DateTimeWrapper.cs" />
+    <Compile Include="IDateTimeWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CinemAPI.Models.Contracts\CinemAPI.Models.Contracts.csproj">
-      <Project>{6599FDBF-A597-4B63-8DA6-62BA0958DBCA}</Project>
-      <Name>CinemAPI.Models.Contracts</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

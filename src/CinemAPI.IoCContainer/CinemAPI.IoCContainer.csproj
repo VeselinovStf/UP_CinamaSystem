@@ -49,11 +49,16 @@
     <Compile Include="DataPackage.cs" />
     <Compile Include="DomainPackage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UtilityPackage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CinemaAPI.DateTimeWraper\CinemaAPI.DateTimeWraper.csproj">
+      <Project>{F7909840-4E98-48F9-97D3-87A6AC8D022F}</Project>
+      <Name>CinemaAPI.DateTimeWraper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CinemAPI.Data.EF\CinemAPI.Data.EF.csproj">
       <Project>{C589E68E-1612-44B0-BFAF-180347B4C8C1}</Project>
       <Name>CinemAPI.Data.EF</Name>

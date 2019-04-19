@@ -14,7 +14,6 @@ namespace CinemAPI.Domain.BuyTicketWithReservation
     public class BuyTicketWithReservation : IBuyWithReservation
     {
         private readonly IReservationRepository reservationRepo;
-        private readonly IBuyWithReservation buyWithoutReservation;
 
         public BuyTicketWithReservation(IReservationRepository reservationRepo)
         {

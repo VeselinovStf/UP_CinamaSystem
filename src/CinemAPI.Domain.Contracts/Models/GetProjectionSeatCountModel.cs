@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace CinemAPI.Domain.Contracts.Models
 {
-    public class ProjectionSeatCountSummary
+    public class GetProjectionSeatCountModel
     {
-        public ProjectionSeatCountSummary(bool isCreated)
+        public GetProjectionSeatCountModel(bool isCreated)
         {
             this.IsCreated = isCreated;
         }
 
-        public ProjectionSeatCountSummary(bool status, string msg)
+        public GetProjectionSeatCountModel(bool status, string msg)
             : this(status)
         {
             this.Message = msg;
@@ -24,5 +24,7 @@ namespace CinemAPI.Domain.Contracts.Models
         public bool IsCreated { get; set; }
 
         public int AvailableSeatsCount { get; set; }
+
+        public DateTime ProjectionDurration { get; set; }
     }
 }
