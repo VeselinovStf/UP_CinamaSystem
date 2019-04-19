@@ -40,14 +40,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IBuyWithoutReservation.cs" />
+    <Compile Include="IBuyWithReservation.cs" />
+    <Compile Include="ICancelReservation.cs" />
     <Compile Include="IGetProjection.cs" />
     <Compile Include="INewProjection.cs" />
     <Compile Include="INewReservation.cs" />
     <Compile Include="IProjectionSeatsCount.cs" />
+    <Compile Include="Models\CancelReservationSummary.cs" />
     <Compile Include="Models\NewProjectionSummary.cs" />
     <Compile Include="Models\NewReservationSummary.cs" />
     <Compile Include="Models\ProjectionSeatCountSummary.cs" />
     <Compile Include="Models\ProjectionSummary.cs" />
+    <Compile Include="Models\TicketSummary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

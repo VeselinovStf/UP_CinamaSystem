@@ -38,6 +38,9 @@ namespace CinemAPI.IoCContainer
 
             // Get Projections
             container.Register<IGetProjection, GetProjection>();
+
+            //
+            //container.Register<>
         }
     }
 }

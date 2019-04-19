@@ -23,12 +23,14 @@ namespace CinemAPI.Domain.NewReservation
         public async Task<NewReservationSummary> New(IReservationCreation reservation)
         {
             var newReservation = new Reservation(
+
                reservation.ProjectionStartDate,
                reservation.MovieName,
                reservation.CinemaName,
                reservation.RoomNumber,
                reservation.Row,
-               reservation.Col);
+               reservation.Col,
+               reservation.ProjectionId);
 
             await this.reservationRepo.Insert(newReservation);
 

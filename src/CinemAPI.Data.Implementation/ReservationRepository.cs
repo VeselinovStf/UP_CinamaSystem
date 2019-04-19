@@ -19,6 +19,23 @@ namespace CinemAPI.Data.Implementation
             this.db = db;
         }
 
+        public async Task<IReservation> GetByKey(int key)
+        {
+            return await this.db.Reservations.FirstOrDefaultAsync(r => r.Id == key);
+        }
+
+        public async Task<IReservation> GetByProjectionId(int projectionId)
+        {
+            return await this.db.Reservations.FirstOrDefaultAsync(p => p.ProjectionId == projectionId);
+        }
+
+        public async Task<IEnumerable<IReservation>> GetByProjectionTime(DateTime before)
+        {
+            return await this.db.Reservations
+                .Where(r => r.ProjectionStartDate >= before)
+                .ToListAsync();
+        }
+
         public async Task<IReservation> GetSpecificReservation(
             DateTime projectionStartDate,
             string movieName,
@@ -44,7 +61,8 @@ namespace CinemAPI.Data.Implementation
                 reservation.CinemaName,
                 reservation.RoomNumber,
                 reservation.Row,
-                reservation.Col);
+                reservation.Col,
+                reservation.ProjectionId);
 
             this.db.Reservations.Add(newReservation);
             await this.db.SaveChangesAsync();

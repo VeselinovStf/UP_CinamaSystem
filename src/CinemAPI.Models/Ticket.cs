@@ -1,4 +1,4 @@
-﻿using CinemAPI.Models.Contracts.Reservation;
+﻿using CinemAPI.Models.Contracts.Ticket;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,20 +7,25 @@ using System.Threading.Tasks;
 
 namespace CinemAPI.Models
 {
-    public class Reservation : IReservation, IReservationCreation
+    public class Ticket : ITicket, ITicketCreate
     {
-        public Reservation()
+        public Ticket()
         {
         }
 
-        public Reservation(int projectionId, int row, int col)
+        public Ticket(int id)
+        {
+            this.Id = id;
+        }
+
+        public Ticket(int projectionId, int row, int col)
         {
             this.ProjectionId = projectionId;
             this.Row = row;
             this.Col = col;
         }
 
-        public Reservation(DateTime projectionStart, string movieName, string cinemaName, int roomNumber, int row, int column, int projectionId)
+        public Ticket(DateTime projectionStart, string movieName, string cinemaName, int roomNumber, int row, int column, int projectionId)
         {
             this.ProjectionStartDate = projectionStart;
             this.MovieName = movieName;
@@ -38,11 +43,7 @@ namespace CinemAPI.Models
         public int RoomNumber { get; set; }
         public int Row { get; set; }
         public int Col { get; set; }
-
-        //
         public int ProjectionId { get; set; }
-
         public int MovieId { get; set; }
-        public int RoomId { get; set; }
     }
 }

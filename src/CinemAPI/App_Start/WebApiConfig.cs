@@ -39,9 +39,21 @@ namespace CinemAPI
 
             config.Routes.MapHttpRoute(
                 name: "CreateReservation",
-                routeTemplate: "api/reservation/{projectionId}/{row}/{col}",
-                defaults: new { controller = "reservation" }
+                routeTemplate: "api/reservation/create/{projectionId}/{row}/{col}",
+                defaults: new { controller = "reservation", action = "create" }
                 );
+
+            config.Routes.MapHttpRoute(
+              name: "BuyTicketWithReservation",
+              routeTemplate: "api/ticket/bye/{reservationKey}",
+              defaults: new { controller = "ticket", action = "buy" }
+              );
+
+            config.Routes.MapHttpRoute(
+               name: "BuyTicketWithReservation",
+               routeTemplate: "api/ticket/bye/{projectionId}/{row}/{col}",
+               defaults: new { controller = "ticket", action = "buy" }
+               );
         }
 
         // Register All Areas - done for Help Pages

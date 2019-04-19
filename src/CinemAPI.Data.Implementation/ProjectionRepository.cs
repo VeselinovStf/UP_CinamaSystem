@@ -26,7 +26,8 @@ namespace CinemAPI.Data.Implementation
         }
 
         //TODO:
-        public async void UpdateAvailibleSeats(int value, int projectionId)
+
+        public async Task UpdateAvailibleSeats(int value, int projectionId)
         {
             var dbModel = await this.db.Projections.FirstOrDefaultAsync(p => p.Id == projectionId);
 

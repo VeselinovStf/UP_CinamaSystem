@@ -18,5 +18,11 @@ namespace CinemAPI.Data
             int roomNumber,
             int row,
             int col);
+
+        Task<IReservation> GetByProjectionId(int projectionId);
+
+        Task<IReservation> GetByKey(int key);
+
+        Task<IEnumerable<IReservation>> GetByProjectionTime(DateTime before);
     }
 }

@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CinemAPI.Models.Contracts.Reservation
+namespace CinemAPI.Models.Contracts.Ticket
 {
-    public interface IReservation
+    public interface ITicketCreate
     {
         int Id { get; set; }
-
-        int ProjectionId { get; set; }
-
         DateTime ProjectionStartDate { get; set; }
+        int ProjectionId { get; set; }
         string MovieName { get; set; }
+
+        int MovieId { get; set; }
         string CinemaName { get; set; }
         int RoomNumber { get; set; }
         int Row { get; set; }

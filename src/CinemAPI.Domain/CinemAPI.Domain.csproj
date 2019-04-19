@@ -40,9 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuyTicketWithoutReservation\BuyTicketsWithoutReservation.cs" />
+    <Compile Include="BuyTicketWithoutReservation\BuyTicketsWithoutReservationValidation.cs" />
+    <Compile Include="BuyTicketWithoutReservation\BuyTicketsWithoutReservationAvailibleSeat.cs" />
+    <Compile Include="BuyTicketWithoutReservation\BuyTicketsWithoutReservationDateTimeValidation.cs" />
+    <Compile Include="BuyTicketWithReservation\BuyTicketWithReservation.cs" />
+    <Compile Include="BuyTicketWithReservation\BuyTicketWithReservationValidation.cs" />
+    <Compile Include="CancelReservation\CancelReservation.cs" />
     <Compile Include="GetProjectionSeatsCount\GetProjectionAvailibleSeatCount.cs" />
     <Compile Include="GetProjectionSeatsCount\GetProjectionSeatsCountIdValidation.cs" />
     <Compile Include="GetProjection\GetProjection.cs" />
+    <Compile Include="GetReservations\GetReservations.cs" />
     <Compile Include="NewReservation\NewReservationCinemaValidation.cs" />
     <Compile Include="NewReservation\NewReservationCreation.cs" />
     <Compile Include="NewProjection\NewProjectionMovieValidation.cs" />
@@ -78,5 +86,6 @@
       <Name>CinemAPI.Models</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
