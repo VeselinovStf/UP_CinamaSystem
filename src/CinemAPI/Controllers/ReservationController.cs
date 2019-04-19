@@ -40,23 +40,5 @@ namespace CinemAPI.Controllers
                 return BadRequest(newReservation.Message);
             }
         }
-
-        //[HttpPost]
-        //public async Task<IHttpActionResult> Cancel(int projectionId, int row, int col)
-        //{
-        //    NewReservationSummary newReservation = await this.newReservation.New(
-        //        new Reservation(projectionId, row, col));
-
-        //    //Decrease seat count
-
-        //    if (newReservation.IsCreated)
-        //    {
-        //        return Ok(newReservation.Reservation);
-        //    }
-        //    else
-        //    {
-        //        return BadRequest(newReservation.Message);
-        //    }
-        //}
     }
 }

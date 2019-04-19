@@ -34,6 +34,13 @@ namespace CinemAPI.Domain.GetProjectionSeatsCount
 
             var movieRepoCall = await this.movieRepository.GetById(projection.MovieId);
 
+            if (movieRepoCall == null)
+            {
+                resultModel.Message = "Can't find movie in to this projection";
+
+                return resultModel;
+            }
+
             var endTimeOfProjection = projection.StartDate.AddMinutes(movieRepoCall.DurationMinutes);
 
             var dateTimeNow = this.dateTimeNowWrapper.GetDateTimeNow();
