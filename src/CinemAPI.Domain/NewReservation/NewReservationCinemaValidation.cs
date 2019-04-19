@@ -4,10 +4,6 @@ using CinemAPI.Domain.Contracts.Models;
 using CinemAPI.Models.Contracts.Cinema;
 using CinemAPI.Models.Contracts.Reservation;
 using CinemAPI.Models.Contracts.Room;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace CinemAPI.Domain.NewReservation

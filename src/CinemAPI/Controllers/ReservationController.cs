@@ -1,13 +1,7 @@
 ﻿using CinemAPI.Domain.Contracts;
 using CinemAPI.Domain.Contracts.Models;
 using CinemAPI.Models;
-using CinemAPI.Models.Contracts.Reservation;
-using CinemAPI.Models.Input.Reservation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Http;
 
 namespace CinemAPI.Controllers

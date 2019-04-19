@@ -1,10 +1,4 @@
-﻿using CinemAPI.Models.Contracts.Reservation;
-using CinemAPI.Models.Contracts.Ticket;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CinemAPI.Models.Contracts.Ticket;
 
 namespace CinemAPI.Domain.Contracts.Models
 {

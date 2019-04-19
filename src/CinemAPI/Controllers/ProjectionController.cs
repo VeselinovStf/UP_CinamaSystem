@@ -3,7 +3,6 @@ using CinemAPI.Domain.Contracts.Models;
 using CinemAPI.Models;
 using CinemAPI.Models.Input.Projection;
 using CinemAPI.Models.ModelFactory;
-using CinemAPI.Models.Output.Projection;
 using System.Threading.Tasks;
 using System.Web.Http;
 
