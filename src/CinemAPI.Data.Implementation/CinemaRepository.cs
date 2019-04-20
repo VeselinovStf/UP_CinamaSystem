@@ -16,6 +16,11 @@ namespace CinemAPI.Data.Implementation
             this.db = db;
         }
 
+        public async Task<ICinema> Get(int cinemaId)
+        {
+            return await this.db.Cinemas.FirstOrDefaultAsync(c => c.Id == cinemaId);
+        }
+
         public async Task<ICinema> GetByNameAndAddress(string name, string address)
         {
             return await db.Cinemas.Where(x => x.Name == name &&

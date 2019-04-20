@@ -58,12 +58,21 @@
     <Compile Include="Migrations\201904180407466_Adding AvailibleSeatsCount to Projjection.Designer.cs">
       <DependentUpon>201904180407466_Adding AvailibleSeatsCount to Projjection.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904200505417_Adding Reservation and Ticket.cs" />
+    <Compile Include="Migrations\201904200505417_Adding Reservation and Ticket.Designer.cs">
+      <DependentUpon>201904200505417_Adding Reservation and Ticket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904200715557_Adding field.cs" />
+    <Compile Include="Migrations\201904200715557_Adding field.Designer.cs">
+      <DependentUpon>201904200715557_Adding field.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModelConfigurations\CinemaModelConfiguration.cs" />
     <Compile Include="IModelConfiguration.cs" />
     <Compile Include="ModelConfigurations\MovieModelConfiguration.cs" />
     <Compile Include="ModelConfigurations\ProjectionModelConfiguration.cs" />
     <Compile Include="ModelConfigurations\ReservationModelConfiguration.cs" />
     <Compile Include="ModelConfigurations\RoomModelConfiguration.cs" />
+    <Compile Include="ModelConfigurations\TicketModelConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -82,6 +91,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904180407466_Adding AvailibleSeatsCount to Projjection.resx">
       <DependentUpon>201904180407466_Adding AvailibleSeatsCount to Projjection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904200505417_Adding Reservation and Ticket.resx">
+      <DependentUpon>201904200505417_Adding Reservation and Ticket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904200715557_Adding field.resx">
+      <DependentUpon>201904200715557_Adding field.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

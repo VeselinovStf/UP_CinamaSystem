@@ -1,4 +1,5 @@
-﻿using CinemAPI.Models.Contracts.Ticket;
+﻿using CinemAPI.Models.Contracts.Reservation;
+using CinemAPI.Models.Contracts.Ticket;
 
 namespace CinemAPI.Domain.Contracts.Models
 {
@@ -19,6 +20,6 @@ namespace CinemAPI.Domain.Contracts.Models
 
         public bool IsCreated { get; set; }
 
-        public ITicketCreate Ticket { get; set; }
+        public IReservation TicketReservation { get; set; }
     }
 }

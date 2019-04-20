@@ -23,7 +23,7 @@ namespace CinemAPI.Data.Implementation
             return await this.db.Reservations.FirstOrDefaultAsync(r => r.Id == key);
         }
 
-        public async Task<IReservation> GetByProjectionId(int projectionId)
+        public async Task<IReservation> GetByProjectionId(long projectionId)
         {
             return await this.db.Reservations.FirstOrDefaultAsync(p => p.ProjectionId == projectionId);
         }

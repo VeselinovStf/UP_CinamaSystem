@@ -10,11 +10,22 @@ namespace CinemAPI.Domain.BuyTicketWithoutReservation
     {
         private readonly IProjectionRepository projectionRepo;
         private readonly IBuyWithoutReservation buyWithoutReservation;
+        private readonly IRoomRepository roomRepo;
+        private readonly ICinemaRepository cinemaRepo;
+        private readonly ITicketRepository ticketRepository;
 
-        public BuyTicketsWithoutReservationAvailibleSeat(IProjectionRepository projectionRepo, IBuyWithoutReservation buyWithoutReservation)
+        public BuyTicketsWithoutReservationAvailibleSeat(
+            IProjectionRepository projectionRepo,
+            IBuyWithoutReservation buyWithoutReservation,
+            IRoomRepository roomRepo,
+            ICinemaRepository cinemaRepo,
+            ITicketRepository ticketRepository)
         {
             this.projectionRepo = projectionRepo;
             this.buyWithoutReservation = buyWithoutReservation;
+            this.roomRepo = roomRepo;
+            this.cinemaRepo = cinemaRepo;
+            this.ticketRepository = ticketRepository;
         }
 
         public async Task<TicketSummary> Buy(ITicketCreate ticket)
@@ -23,9 +34,23 @@ namespace CinemAPI.Domain.BuyTicketWithoutReservation
 
             if (projection.AvailableSeatsCount != 0)
             {
-                await this.projectionRepo.UpdateSingleAvailibleSeat(-1, projection.Id);
+                var soldTickets = await this.ticketRepository.Get(ticket.ProjectionId);
 
-                return await this.buyWithoutReservation.Buy(ticket);
+                if (soldTickets == null)
+                {
+                    var room = await this.roomRepo.GetById(projection.RoomId);
+                    var cinema = await this.cinemaRepo.Get(room.CinemaId);
+
+                    await this.projectionRepo.UpdateSingleAvailibleSeat(-1, projection.Id);
+
+                    ticket.CinemaName = cinema.Name;
+
+                    return await this.buyWithoutReservation.Buy(ticket);
+                }
+                else
+                {
+                    return new TicketSummary(false, "No availible seats, the seat is sold");
+                }
             }
 
             return new TicketSummary(false, "No availible seats");

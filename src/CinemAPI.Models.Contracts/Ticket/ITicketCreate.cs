@@ -6,7 +6,7 @@ namespace CinemAPI.Models.Contracts.Ticket
     {
         int Id { get; set; }
         DateTime ProjectionStartDate { get; set; }
-        int ProjectionId { get; set; }
+        long ProjectionId { get; set; }
         string MovieName { get; set; }
 
         int MovieId { get; set; }

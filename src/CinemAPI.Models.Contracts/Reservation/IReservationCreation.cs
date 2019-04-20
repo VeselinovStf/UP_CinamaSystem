@@ -4,7 +4,7 @@ namespace CinemAPI.Models.Contracts.Reservation
 {
     public interface IReservationCreation
     {
-        int ProjectionId { get; set; }
+        long ProjectionId { get; set; }
 
         int MovieId { get; set; }
         int RoomId { get; set; }

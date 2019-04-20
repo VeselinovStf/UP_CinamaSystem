@@ -53,6 +53,7 @@ namespace CinemAPI.Domain.BuyTicketWithoutReservation
 
             ticket.MovieName = movieRepoCall.Name;
             ticket.ProjectionStartDate = projection.StartDate;
+            ticket.ProjectionId = projection.Id;
 
             return await this.buyWithoutReservation.Buy(ticket);
         }

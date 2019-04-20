@@ -17,7 +17,7 @@ namespace CinemAPI.Data
             int row,
             int col);
 
-        Task<IReservation> GetByProjectionId(int projectionId);
+        Task<IReservation> GetByProjectionId(long projectionId);
 
         Task<IReservation> GetByKey(int key);
 

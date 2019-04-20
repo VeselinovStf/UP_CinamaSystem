@@ -34,7 +34,7 @@ namespace CinemAPI.Controllers
 
             if (ticket.IsCreated)
             {
-                return Ok(this.modelFactory.Create(ticket.Ticket));
+                return Ok(this.modelFactory.Create(ticket.TicketReservation));
             }
             else
             {
@@ -47,11 +47,11 @@ namespace CinemAPI.Controllers
         {
             await this.cancelReservations.CancelReservationsTenMinutessBeforeProjection();
 
-            var ticket = await this.ticketWithReservation.Buy(new Ticket(reservationKey));
+            var ticket = await this.ticketWithReservation.Buy(new Reservation(reservationKey));
 
             if (ticket.IsCreated)
             {
-                return Ok(this.modelFactory.Create(ticket.Ticket));
+                return Ok(this.modelFactory.Create(ticket.TicketReservation));
             }
             else
             {

@@ -1,6 +1,7 @@
 ﻿using CinemAPI.Data;
 using CinemAPI.Domain.Contracts;
 using CinemAPI.Domain.Contracts.Models;
+using CinemAPI.Models.Contracts.Reservation;
 using CinemAPI.Models.Contracts.Ticket;
 using System.Threading.Tasks;
 
@@ -17,25 +18,25 @@ namespace CinemAPI.Domain.BuyTicketWithReservation
             this.buyWithoutReservation = buyWithoutReservation;
         }
 
-        public async Task<TicketSummary> Buy(ITicketCreate ticket)
+        public async Task<TicketSummary> Buy(IReservation reservation)
         {
-            var reservation = await this.reservationRepo.GetByKey(ticket.Id);
+            var reservationMade = await this.reservationRepo.GetByKey(reservation.Id);
 
-            if (reservation == null)
+            if (reservationMade == null)
             {
                 return new TicketSummary(false, "Can't buy ticket without reservation");
             }
 
-            ticket.Id = reservation.Id;
-            ticket.MovieName = reservation.MovieName;
-            ticket.ProjectionStartDate = reservation.ProjectionStartDate;
-            ticket.CinemaName = reservation.CinemaName;
-            ticket.Row = reservation.Row;
-            ticket.Col = reservation.Col;
-            ticket.RoomNumber = reservation.RoomNumber;
-            ticket.ProjectionId = reservation.ProjectionId;
+            reservation.Id = reservationMade.Id;
+            reservation.MovieName = reservationMade.MovieName;
+            reservation.ProjectionStartDate = reservationMade.ProjectionStartDate;
+            reservation.CinemaName = reservationMade.CinemaName;
+            reservation.Row = reservationMade.Row;
+            reservation.Col = reservationMade.Col;
+            reservation.RoomNumber = reservationMade.RoomNumber;
+            reservation.ProjectionId = reservationMade.ProjectionId;
 
-            return await this.buyWithoutReservation.Buy(ticket);
+            return await this.buyWithoutReservation.Buy(reservation);
         }
     }
 }

@@ -26,7 +26,7 @@ namespace CinemAPI.Domain.BuyTicketWithotuReservation
             {
                 if (reservation.Col == ticket.Col && reservation.Row == ticket.Row)
                 {
-                    return new TicketSummary(false);
+                    return new TicketSummary(false, "This Seat is Reserved");
                 }
                 else
                 {

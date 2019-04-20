@@ -6,7 +6,7 @@ namespace CinemAPI.Models.Contracts.Reservation
     {
         int Id { get; set; }
 
-        int ProjectionId { get; set; }
+        long ProjectionId { get; set; }
 
         DateTime ProjectionStartDate { get; set; }
         string MovieName { get; set; }
