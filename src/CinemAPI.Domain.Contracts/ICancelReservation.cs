@@ -5,6 +5,6 @@ namespace CinemAPI.Domain.Contracts
 {
     public interface ICancelReservation
     {
-        Task<CancelReservationSummary> Cancel();
+        Task<CancelReservationSummary> CancelReservationsTenMinutessBeforeProjection();
     }
 }

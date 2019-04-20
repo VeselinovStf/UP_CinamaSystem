@@ -22,5 +22,7 @@ namespace CinemAPI.Data
         Task<IReservation> GetByKey(int key);
 
         Task<IEnumerable<IReservation>> GetByProjectionTime(DateTime before);
+
+        Task RemoveReservations(IEnumerable<IReservation> reservations);
     }
 }

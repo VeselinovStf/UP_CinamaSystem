@@ -29,7 +29,7 @@ namespace CinemAPI.Controllers
         [HttpPost]
         public async Task<IHttpActionResult> Create(int projectionId, int row, int col)
         {
-            // await this.cancelReservation.Cancel();
+            await this.cancelReservation.CancelReservationsTenMinutessBeforeProjection();
 
             NewReservationSummary newReservation = await this.newReservation.New(
                 new Reservation(projectionId, row, col));

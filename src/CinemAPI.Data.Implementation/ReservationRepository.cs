@@ -31,7 +31,7 @@ namespace CinemAPI.Data.Implementation
         public async Task<IEnumerable<IReservation>> GetByProjectionTime(DateTime before)
         {
             return await this.db.Reservations
-                .Where(r => r.ProjectionStartDate >= before)
+                .Where(r => r.ProjectionStartDate <= before)
                 .ToListAsync();
         }
 
@@ -64,6 +64,16 @@ namespace CinemAPI.Data.Implementation
                 reservation.ProjectionId);
 
             this.db.Reservations.Add(newReservation);
+            await this.db.SaveChangesAsync();
+        }
+
+        public async Task RemoveReservations(IEnumerable<IReservation> reservations)
+        {
+            foreach (var reservation in reservations)
+            {
+                this.db.Reservations.Remove((Reservation)reservation);
+            }
+
             await this.db.SaveChangesAsync();
         }
     }

@@ -28,7 +28,7 @@ namespace CinemAPI.Controllers
         [HttpPost]
         public async Task<IHttpActionResult> Buy(int projectionId, int row, int col)
         {
-            //await this.cancelReservations.Cancel();
+            await this.cancelReservations.CancelReservationsTenMinutessBeforeProjection();
 
             var ticket = await this.ticketWithoutReservation.Buy(new Ticket(projectionId, row, col));
 
@@ -45,7 +45,7 @@ namespace CinemAPI.Controllers
         [HttpPost]
         public async Task<IHttpActionResult> Buy(int reservationKey)
         {
-            await this.cancelReservations.Cancel();
+            await this.cancelReservations.CancelReservationsTenMinutessBeforeProjection();
 
             var ticket = await this.ticketWithReservation.Buy(new Ticket(reservationKey));
 
