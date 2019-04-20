@@ -42,6 +42,13 @@ namespace CinemAPI.Domain.NewReservation
                 return summary;
             }
 
+            if (currentDateTime > projectionStartDate)
+            {
+                summary.Message = "Can't reserve place for started projection ";
+
+                return summary;
+            }
+
             if (currentDateTime.AddMinutes(9) >= projectionStartDate)
             {
                 summary.Message = "Can't reserve place for projection starting in less than 10 minutes ";

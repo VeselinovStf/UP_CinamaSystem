@@ -26,6 +26,15 @@ namespace CinemAPI.Domain.BuyTicketWithReservation
                 return new TicketSummary(false, "Can't buy ticket without reservation");
             }
 
+            ticket.Id = reservation.Id;
+            ticket.MovieName = reservation.MovieName;
+            ticket.ProjectionStartDate = reservation.ProjectionStartDate;
+            ticket.CinemaName = reservation.CinemaName;
+            ticket.Row = reservation.Row;
+            ticket.Col = reservation.Col;
+            ticket.RoomNumber = reservation.RoomNumber;
+            ticket.ProjectionId = reservation.ProjectionId;
+
             return await this.buyWithoutReservation.Buy(ticket);
         }
     }

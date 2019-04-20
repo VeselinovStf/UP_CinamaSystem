@@ -25,12 +25,6 @@ namespace CinemAPI
         // Web API routes
         private static void ConfigureRoutes(HttpConfiguration config)
         {
-            //config.Routes.MapHttpRoute(
-            //    name: "DefaultApi",
-            //    routeTemplate: "api/{controller}/{id}",
-            //    defaults: new { id = RouteParameter.Optional }
-            //    );
-
             config.Routes.MapHttpRoute(
                 name: "ProjectionAvailibleSeatsCount",
                 routeTemplate: "api/projection/{projectionId}/availibleSeatsCount",
@@ -45,13 +39,13 @@ namespace CinemAPI
 
             config.Routes.MapHttpRoute(
               name: "BuyTicketWithReservation",
-              routeTemplate: "api/ticket/bye/{reservationKey}",
+              routeTemplate: "api/ticket/buy/{reservationKey}",
               defaults: new { controller = "ticket", action = "buy" }
               );
 
             config.Routes.MapHttpRoute(
                name: "BuyTicketWithoutReservation",
-               routeTemplate: "api/ticket/bye/{projectionId}/{row}/{col}",
+               routeTemplate: "api/ticket/buy/{projectionId}/{row}/{col}",
                defaults: new { controller = "ticket", action = "buy" }
                );
         }

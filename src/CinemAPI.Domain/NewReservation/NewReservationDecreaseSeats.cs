@@ -28,7 +28,7 @@ namespace CinemAPI.Domain.NewReservation
             {
                 try
                 {
-                    await this.projectionsRepo.UpdateAvailibleSeats(-1, reservation.ProjectionId);
+                    await this.projectionsRepo.UpdateSingleAvailibleSeat(-1, reservation.ProjectionId);
 
                     return await this.newReservation.New(reservation);
                 }

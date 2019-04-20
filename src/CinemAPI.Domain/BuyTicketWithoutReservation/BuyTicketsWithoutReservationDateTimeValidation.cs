@@ -25,9 +25,11 @@ namespace CinemAPI.Domain.BuyTicketWithoutReservation
 
         public async Task<TicketSummary> Buy(ITicketCreate ticket)
         {
-            var projectionStartDate = ticket.ProjectionStartDate;
+            var projection = await this.projectionRepo.Get(ticket.ProjectionId);
 
-            var movieRepoCall = await this.movieRepo.GetById(ticket.MovieId);
+            var projectionStartDate = projection.StartDate;
+
+            var movieRepoCall = await this.movieRepo.GetById(projection.MovieId);
 
             var endTimeOfProjection = projectionStartDate.AddMinutes(movieRepoCall.DurationMinutes);
 
@@ -48,6 +50,9 @@ namespace CinemAPI.Domain.BuyTicketWithoutReservation
 
                 return summary;
             }
+
+            ticket.MovieName = movieRepoCall.Name;
+            ticket.ProjectionStartDate = projection.StartDate;
 
             return await this.buyWithoutReservation.Buy(ticket);
         }

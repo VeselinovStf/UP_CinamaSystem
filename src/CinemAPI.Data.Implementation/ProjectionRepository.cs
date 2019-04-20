@@ -1,6 +1,7 @@
 ﻿using CinemAPI.Data.EF;
 using CinemAPI.Models;
 using CinemAPI.Models.Contracts.Projection;
+using CinemAPI.Models.Contracts.Reservation;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -27,7 +28,7 @@ namespace CinemAPI.Data.Implementation
 
         //TODO:
 
-        public async Task UpdateAvailibleSeats(int value, int projectionId)
+        public async Task UpdateSingleAvailibleSeat(int value, long projectionId)
         {
             var dbModel = await this.db.Projections.FirstOrDefaultAsync(p => p.Id == projectionId);
 
@@ -55,6 +56,18 @@ namespace CinemAPI.Data.Implementation
             Projection newProj = new Projection(proj.MovieId, proj.RoomId, proj.StartDate, proj.AvailableSeatsCount);
 
             db.Projections.Add(newProj);
+            await db.SaveChangesAsync();
+        }
+
+        public async Task UpdateAvailibleSeats(int value, IEnumerable<IReservation> reservations)
+        {
+            foreach (var item in reservations)
+            {
+                var dbModel = await this.db.Projections.FirstOrDefaultAsync(p => p.Id == item.ProjectionId);
+
+                dbModel.AvailableSeatsCount += value;
+            }
+
             await db.SaveChangesAsync();
         }
     }

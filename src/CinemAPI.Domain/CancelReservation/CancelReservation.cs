@@ -32,9 +32,13 @@ namespace CinemAPI.Domain.CancelReservation
                 return new CancelReservationSummary(false, "No Reservations to cancel");
             }
 
-            foreach (var item in reservations)
+            try
             {
-                await this.projectionRepo.UpdateAvailibleSeats(1, item.ProjectionId);
+                await this.projectionRepo.UpdateAvailibleSeats(1, reservations);
+            }
+            catch (System.Exception)
+            {
+                return new CancelReservationSummary(false, "Ten minutes limit for reservation is not followed!");
             }
 
             return new CancelReservationSummary(true);

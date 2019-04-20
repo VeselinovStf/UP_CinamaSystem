@@ -22,12 +22,21 @@ namespace CinemAPI.Domain.BuyTicketWithotuReservation
             var reservation = await this.reservationRepo.GetByProjectionId(ticket.ProjectionId);
 
             //TODO: BUYED ENTITI
-            if (reservation == null)
+            if (reservation != null)
+            {
+                if (reservation.Col == ticket.Col && reservation.Row == ticket.Row)
+                {
+                    return new TicketSummary(false);
+                }
+                else
+                {
+                    return await this.buyWithoutReservation.Buy(ticket);
+                }
+            }
+            else
             {
                 return await this.buyWithoutReservation.Buy(ticket);
             }
-
-            return new TicketSummary(false);
         }
     }
 }

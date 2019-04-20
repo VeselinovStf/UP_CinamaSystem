@@ -24,12 +24,12 @@ namespace CinemAPI.Domain.NewReservation
         {
             var room = await this.roomRepository.GetById(reservation.RoomId);
 
-            if (room.Rows > reservation.Row)
+            if (room.Rows < reservation.Row || reservation.Row > room.Rows)
             {
                 return new NewReservationSummary(false, "No such row in the room to reserve");
             }
 
-            if (room.SeatsPerRow > reservation.Col)
+            if (room.SeatsPerRow < reservation.Col || reservation.Col > room.SeatsPerRow)
             {
                 return new NewReservationSummary(false, "No such colon in the room to reserve");
             }

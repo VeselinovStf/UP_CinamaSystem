@@ -4,7 +4,6 @@ using CinemAPI.Domain.BuyTicketWithoutReservation;
 using CinemAPI.Domain.BuyTicketWithReservation;
 using CinemAPI.Domain.CancelReservation;
 using CinemAPI.Domain.Contracts;
-using CinemAPI.Domain.GetProjection;
 using CinemAPI.Domain.GetProjectionSeatsCount;
 using CinemAPI.Domain.NewProjection;
 using CinemAPI.Domain.NewReservation;
@@ -41,9 +40,6 @@ namespace CinemAPI.IoCContainer
             container.RegisterDecorator<INewReservation, NewReservationRoomValidation>();
             container.RegisterDecorator<INewReservation, NewReservationProjectionValidation>();
 
-            // Get Projections
-            container.Register<IGetProjection, GetProjection>();
-
             // Cancell Reservation
             container.Register<ICancelReservation, CancelReservation>();
 
@@ -55,6 +51,7 @@ namespace CinemAPI.IoCContainer
 
             // Buy with reservation
             container.Register<IBuyWithReservation, BuyTicketWithReservation>();
+            container.RegisterDecorator<IBuyWithReservation, BuyTicketWithReservationAvailibleSeats>();
             container.RegisterDecorator<IBuyWithReservation, BuyTicketWithReservationValidation>();
         }
     }

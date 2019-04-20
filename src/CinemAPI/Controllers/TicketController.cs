@@ -1,5 +1,6 @@
 ﻿using CinemAPI.Domain.Contracts;
 using CinemAPI.Models;
+using CinemAPI.Models.ModelFactory;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -10,27 +11,30 @@ namespace CinemAPI.Controllers
         private readonly IBuyWithoutReservation ticketWithoutReservation;
         private readonly ICancelReservation cancelReservations;
         private readonly IBuyWithReservation ticketWithReservation;
+        private readonly IModelFactory modelFactory;
 
         public TicketController(
             IBuyWithoutReservation ticketWithoutReservation,
             ICancelReservation cancelReservations,
-            IBuyWithReservation ticketWithReservation)
+            IBuyWithReservation ticketWithReservation,
+            IModelFactory modelFactory)
         {
             this.ticketWithoutReservation = ticketWithoutReservation;
             this.cancelReservations = cancelReservations;
             this.ticketWithReservation = ticketWithReservation;
+            this.modelFactory = modelFactory;
         }
 
         [HttpPost]
-        public async Task<IHttpActionResult> Bye(int projectionId, int row, int col)
+        public async Task<IHttpActionResult> Buy(int projectionId, int row, int col)
         {
-            await this.cancelReservations.Cancel();
+            //await this.cancelReservations.Cancel();
 
             var ticket = await this.ticketWithoutReservation.Buy(new Ticket(projectionId, row, col));
 
             if (ticket.IsCreated)
             {
-                return Ok(ticket);
+                return Ok(this.modelFactory.Create(ticket.Ticket));
             }
             else
             {
@@ -39,7 +43,7 @@ namespace CinemAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IHttpActionResult> Bye(int reservationKey)
+        public async Task<IHttpActionResult> Buy(int reservationKey)
         {
             await this.cancelReservations.Cancel();
 
@@ -47,7 +51,7 @@ namespace CinemAPI.Controllers
 
             if (ticket.IsCreated)
             {
-                return Ok(ticket);
+                return Ok(this.modelFactory.Create(ticket.Ticket));
             }
             else
             {

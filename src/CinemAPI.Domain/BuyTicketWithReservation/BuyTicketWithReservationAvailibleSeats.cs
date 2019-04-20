@@ -2,19 +2,23 @@
 using CinemAPI.Domain.Contracts;
 using CinemAPI.Domain.Contracts.Models;
 using CinemAPI.Models.Contracts.Ticket;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace CinemAPI.Domain.BuyTicketWithoutReservation
+namespace CinemAPI.Domain.BuyTicketWithReservation
 {
-    public class BuyTicketsWithoutReservationAvailibleSeat : IBuyWithoutReservation
+    public class BuyTicketWithReservationAvailibleSeats : IBuyWithReservation
     {
         private readonly IProjectionRepository projectionRepo;
-        private readonly IBuyWithoutReservation buyWithoutReservation;
+        private readonly IBuyWithReservation buyWithReservation;
 
-        public BuyTicketsWithoutReservationAvailibleSeat(IProjectionRepository projectionRepo, IBuyWithoutReservation buyWithoutReservation)
+        public BuyTicketWithReservationAvailibleSeats(IProjectionRepository projectionRepo, IBuyWithReservation buyWithReservation)
         {
             this.projectionRepo = projectionRepo;
-            this.buyWithoutReservation = buyWithoutReservation;
+            this.buyWithReservation = buyWithReservation;
         }
 
         public async Task<TicketSummary> Buy(ITicketCreate ticket)
@@ -25,7 +29,7 @@ namespace CinemAPI.Domain.BuyTicketWithoutReservation
             {
                 await this.projectionRepo.UpdateSingleAvailibleSeat(-1, projection.Id);
 
-                return await this.buyWithoutReservation.Buy(ticket);
+                return await this.buyWithReservation.Buy(ticket);
             }
 
             return new TicketSummary(false, "No availible seats");

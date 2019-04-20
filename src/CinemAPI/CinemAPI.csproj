@@ -175,6 +175,8 @@
     <Compile Include="Models\ModelFactory\IModelFactory.cs" />
     <Compile Include="Models\ModelFactory\ModelFactory.cs" />
     <Compile Include="Models\Output\Projection\ProjectionSeatsCountModel.cs" />
+    <Compile Include="Models\Output\Reservation\ReservationTicketModel.cs" />
+    <Compile Include="Models\Output\Ticket\TicketModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
