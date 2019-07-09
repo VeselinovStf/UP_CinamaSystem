@@ -10,8 +10,7 @@
 	
 > You are given a .NET Web Api project. It uses Entity Framework to communicate with MSSQL Server. Its purpose is to manage cinemas and their projections of movies. Currently there are several controllers implemented which expose endpoints to create cinemas, rooms in these cinemas, movies and projections of these movies in cinemas. There is no front-end, therefore when testing you have to call the endpoints through Postman (https://www.getpostman.com) or other HTTP clients. - https://bitbucket.org/ikarimanov_ultraplay/cinemapi/src   - Project source code Instructions 
 > 
->  You have 7 days to complete the assessment.  Meanwhile, if you have any questions or concerns, please do not hesitate to contact us. 
-> 
+
 >  The goal is to finish the entire assessment. Incomplete answers will be marked as incorrect.
 
 > 
